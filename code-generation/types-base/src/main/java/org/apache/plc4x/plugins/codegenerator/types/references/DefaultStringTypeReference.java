@@ -27,11 +27,16 @@ public class DefaultStringTypeReference extends DefaultSimpleTypeReference imple
 
     private final String encoding;
 
+    public DefaultStringTypeReference(SimpleBaseType baseType, int sizeInBits, String encoding) {
+        super(baseType, sizeInBits);
+        this.lengthExpression = null;
+        this.encoding = encoding;
+    }
+
     public DefaultStringTypeReference(SimpleBaseType baseType, Term lengthExpression, String encoding) {
         super(baseType, -1);
         this.lengthExpression = lengthExpression;
         this.encoding = encoding;
-
     }
 
     public Term getLengthExpression() {
@@ -42,7 +47,5 @@ public class DefaultStringTypeReference extends DefaultSimpleTypeReference imple
     public String getEncoding() {
         return encoding;
     }
-
-
 
 }
